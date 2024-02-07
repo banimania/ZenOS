@@ -21,10 +21,21 @@ skip_bpb:
   
   call print_newline
 
+  mov bx, SP_MSG
+  call print
+
+  mov dx, sp
+  call print_hex
+
+  call print_newline
+
   jmp $
 
 INIT_MSG:
   dw 'Bootloader initialized', 0
+
+SP_MSG:
+  dw 'Stack pointer address: ', 0
 
 BOOT_DISK:
   db 0
